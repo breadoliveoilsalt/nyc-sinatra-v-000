@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form class="" action="/figures" method="post">
+
+      <!-- The values for "id=" below are based simply on what the tests/Capybara required -->
+
+      <h1>Create a new figure!</h1>
+
+      <p></p>
+      Name: <input type="text" name="figure[name]" value="" id="figure_name" >
+
+      <p></p>
+      Landmark: <input type="text" name="landmark[name]" value="" id="new_landmark">
+
+      <p></p>
+        <% Landmark.all.each do |landmark| %>
+          <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"  id="landmark_<%= landmark.id %>"> <%=landmark.name %> </input>
+        <% end %>
+
+      <p></p>
+      Titles: <input type="text" name="title[name]" value="" id="new_title">
+
+      <p></p>
+      <% Title.all.each do |title| %>
+        <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"  id="title_<%= title.id %>"> <%= title.name %> </input>
+      <% end %>
+
+      <p></p>
+      <input type="submit" name="" value="Create New Figure">
+
+    </form>
+
+  </body>
+</html>
