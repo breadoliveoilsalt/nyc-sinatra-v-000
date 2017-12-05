@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form class="" action="/landmarks" method="post">
+
+      <!-- The values for "id=" below are based simply on what the tests/Capybara required -->
+
+      <h1>Create a new Landmark!</h1>
+
+      <p></p>
+      Name: <input type="text" name="landmark[name]" value="" id="landmark_name" >
+
+      <p></p>
+      Year Completed: <input type="text" name="landmark[year_completed]" value="" id="landmark_year_completed">
+      <p></p>
+      Figure: <input type="text" name="figure[name]" value="" id="new_figure">
+
+      <p></p>
+        <% Figure.all.each do |figure| %>
+          <input type="radio" name="landmark[figure_id]" value="<%= figure.id %>"  id="figure_<%= figure.id %>"> <%=figure.name %> </input>
+        <% end %>
+
+      <p></p>
+      <input type="submit" name="" value="Create New Landmark">
+
+    </form>
+
+
+  </body>
+</html>
